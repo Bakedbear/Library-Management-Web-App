@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="jumbotron text-center">
+    <h1>Online Library Management System</h1>
+    <p class="lead">Easily Access your Book and Member Records</p>
+  </div>
+
+  <div class="button-container">
+    <a href="/reports" class="btn btn-secondary btn-lg px-4">Reports</a>
+    <a href="/books" class="btn btn-outline-secondary btn-lg px-4">Books</a>
+    <a href="/members" class="btn btn-outline-secondary btn-lg px-4">Members</a>
+    <a href="/transactions" class="btn btn-outline-secondary btn-lg px-4">Transactions</a>
+  </div>
+
+  <!-- Upcoming Events Section -->
+  <div class="events-section">
+      <h2>Upcoming Events</h2>
+      
+      <!-- Event Item 1 -->
+      <div class="event-item">
+          <h3>Book Talk: Moving Theory Into Practice</h3>
+          <p><b>Date: Aug 24, 2023</b></p>
+          <p>Time: 10:00 am - 11:00am</p>
+      </div>
+      
+      <!-- Event Item 2 (Add more event items as needed) -->
+      <div class="event-item">
+          <h3>Library Leaders Forum: Virtual</h3>
+          <p><b>Date: Oct 4, 2023</b></p>
+          <p>Time: 2:30 PM</p>
+      </div>
+
+      <div class="event-item">
+          <h3>Doors Open 2023</h3>
+          <p><b>Date: Oct 11, 2023</b></p>
+          <p>Time: 10:00 am - 11:00am</p>
+          <p>Behind–the-Scenes at the Physical Archive</p>
+      </div>
+      <!-- Link to view all events -->
+      <p>View All Events</p>
+  </div>
+{% endblock content %}

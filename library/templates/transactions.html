@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <br>
+    <h3>Transactions</h3>
+    <br>
+    {% if transactions %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Member Name</th>
+                <th>Book Title</th>
+                <th>Borrow Date</th>
+                <th>Date Returned</th>
+                <th>Status</th>
+                <th>Action</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{transaction.id}}</td>
+                <td>{{ transaction.username }}</td>
+                <td>{{transaction.book.title}}</td>
+                <td>{{transaction.date_issued}}</td>
+                <td>
+                    {% if transaction.returned %}
+                        {{ transaction.return_date.strftime('%Y-%m-%d') }}
+                    {% else %}
+                        Pending
+                    {% endif %}
+                </td>
+                <td>
+                    {% if transaction.returned %}
+                        Returned
+                    {% else %}
+                        Borrowed
+                    {% endif %}
+                </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="actionsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Actions
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="actionsDropdown">
+                            {% if transaction.returned %}
+                                Paid
+                            {% else %}
+                            <form action="{{ url_for('return_book', transaction_id=transaction.id) }}" method="GET">
+                                <button class="dropdown-item" type="submit" name="action" value="return">Return Book</button>
+                            </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% endif %}
+{% endblock content %}

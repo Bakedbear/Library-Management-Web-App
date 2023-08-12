@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h3>Search for a Book</h3>
+    <br>
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <div class="form-group margin-bottom mb-3">
+                    <div class="form-group-label margin-bottom mb-2">
+                        {{ form.title.label(class="form-control-label") }}
+                    </div>
+                    {% if form.title.errors %}
+                        {{ form.title(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.title.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.title(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group margin-bottom mb-3">
+                    <div class="form-group-label margin-bottom mb-2">
+                        {{ form.author.label(class="form-control-label") }}
+                    </div>
+                    {% if form.author.errors %}
+                        {{ form.author(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.author.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.author(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group margin-bottom mb-4">
+                {{ form.submit(class="btn btn-success") }}
+            </div>
+        </form>
+    </div>
+    {% if books %}
+    <h3>Search Results: </h3>
+    <hr>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Book ID</th>
+                <th>Title</th>
+                <th>Author(s)</th>
+                <th>Pages</th>
+                <th>Publisher</th>
+                <th>Date Published</th>
+                <th>Total quantity</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr style="cursor:pointer;">
+                <td><a href="/book_item/{{ book.id }}" class="btn btn-dark pull-right">{{"{:05d}".format(book.id)}}</a></td>
+                <td onclick="window.location='/book_item/{{ book.id }}';">{{ book.title }}</td>
+                <td onclick="window.location='/book_item/{{ book.id }}';">{{ book.author }}</td>
+                <td onclick="window.location='/book_item/{{ book.id }}';">{{ book.num_pages }}</td>
+                <td onclick="window.location='/book_item/{{ book.id }}';">{{ book.publisher }}</td>
+                <td onclick="window.location='/book_item_item/{{ book.id }}';">{{ book.date_published }}</td>
+                <td onclick="window.location='/book_item/{{ book.id }}';">{{ book.total_quantity }}</td>
+                <td><a href="{{ url_for('edit_book', book_id=book.id) }}" class="btn btn-success pull-right">Edit</a></td>
+                <td>
+                    <form action="{{url_for('delete_book', book_id=book.id)}}" method="POST"
+                        onsubmit="return confirm('Are you sure you want to delete this book?');">
+                        <input type="hidden" name="method" value="Delete">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+{% endblock %}

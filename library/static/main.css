@@ -1,0 +1,280 @@
+body {
+  background: #fafafa;
+  color: #333333;
+  margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+  padding: 5px 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
+.bg-steel {
+  background-color: #008080;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #CBD5BD;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.home-button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.home-button:hover {
+  background-color: #0056b3;
+}
+
+.events-section {
+  text-align: center;
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+/* event items */
+.event-item {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+/* forms */
+.form-control {
+  background-color: #EDEDED; /* Custom background color */
+  border: 1px solid #ccc; /* Custom border style */
+  border-radius: 4px; /* Custom border radius */
+  padding: 7px; 
+}
+
+fieldset legend {
+  padding: 5px 10px;
+  font-weight: bold;
+}
+
+.btn {
+  margin: 9px 0;
+}
+
+.btn-outline-info {
+  background-color: #008080;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #008080;
+}
+
+.btn-secondary:hover {
+  background-color: #004E4F;
+}
+
+.btn-secondary:active {
+  background-color: #004E4F;
+}
+
+/* navbar */
+.navbar-brand {
+    font-size: 24px;
+}
+
+
+
+/* CSS - Book item */
+.add-book-button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-book-button:hover {
+  background-color: #0056b3;
+}
+
+.book-list {
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+}
+
+/* view book item */
+.book-details {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+  background-color: #EDEDED;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 700px; 
+  margin-left: 1px;
+}
+
+.book-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.book-author {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.book-publisher {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.book-isbn {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.book-num_pages {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.book-text_reviews_count {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.book-total_quantity {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.book-date-published {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+
+/* members */
+.member-details {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 700px; 
+}
+
+.member-username {
+  font-size: 18px;
+   color: #666;
+  margin-bottom: 10px;
+}
+
+.member-id {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.member-email {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* headings and list items */
+h2 { 
+  margin-bottom: 10px; 
+}
+
+li {
+  margin-bottom: 5px; 
+  padding: 5px;
+  font-size: 17px;
+} 
+
+
+/* table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+/* Add spacing between the details row and hide it initially */
+.details-row {
+  display: none;
+  background-color: #f9f9f9;
+}
+
+/* Style the plus icon */
+.btn-plus {
+  background-color: transparent;
+  border: none;
+}
+
+.btn-plus:focus {
+  outline: none;
+}
+
+/* Add custom style for the plus icon when active */
+.btn-plus.active {
+  color: #004E4F;
+}
+
+/* Add some padding and spacing to the table */
+.table-container {
+  margin: 20px 0;
+}

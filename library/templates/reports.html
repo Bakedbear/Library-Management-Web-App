@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <br>
+    <h2>Reports</h2>
+    <hr>
+    <br>
+    {% if books%}
+    <h3>Most Reviewed Books</h3>
+    <br>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Book ID</th>
+                <th>Title</th>
+                <th>Author(s)</th>
+                <th>Date Published</th>
+                <th>Pages</th>
+                <th>Total Quantity</th>
+                <th>Reviews Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr style="cursor:pointer;">
+                <td><a href="/book_item/{{ book.id }}">{{ book.id }}</a></td>
+                <td onclick="window.location='/book_item/{{ book.id }}';">{{ book.title }}</td>
+                <td onclick="window.location='/book_item/{{ book.id }}';">{{ book.author }}</td>
+                <td onclick="window.location='/book_item_item/{{ book.id }}';">{{ book.date_published }}</td>
+                <td onclick="window.location='/book_item/{{ book.id }}';">{{ book.num_pages }}</td>
+                <td onclick="window.location='/book_item/{{ book.id }}';">{{ book.total_quantity }}</td>
+                <td onclick="window.location='/book_item/{{ book.id }}';">{{ book.text_reviews_count }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+    {% if users %}
+    <br>
+    <h3>Customers with the Highest Amount Due</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Member ID</th>
+                <th>Name</th>
+                <th>Amount Due</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>
+                    {{ user.id }}
+                </td>
+                <td>{{user.username}}</td>
+                <td>{{user.amount_due}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+{% endblock content %}

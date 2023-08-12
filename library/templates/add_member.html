@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Add New Member</legend>
+                <div class="form-group margin-bottom mb-3">
+                    <div class="form-group-label margin-bottom mb-2">
+                        {{ form.username.label(class="form-control-label") }}
+                    </div>
+                    {% if form.username.errors %}
+                        {{ form.username(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.username(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group margin-bottom mb-3">
+                    <div class="form-group-label margin-bottom mb-2">
+                        {{ form.email.label(class="form-control-label") }}
+                    </div>
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group margin-bottom mb-4">
+                {{ form.submit(class="btn btn-success") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

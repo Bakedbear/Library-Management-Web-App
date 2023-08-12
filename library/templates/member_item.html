@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+{% block content %}
+    {% if user %}
+    <br>
+    <div class="d-flex justify-content-between">
+        <h2>Member Details:</h2>
+        <div><a href="{{ url_for('edit_member', user_id=user.id) }}" class="btn btn-success pull-right">Edit</a></div>
+    </div>
+    <br>
+    <h4 style="width: 80%;">{{user.username}}</h4>
+    <br>
+    <hr>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Member ID</th>
+                <th>Name</th>
+                <th>Email ID</th>
+                <th>Registered On</th>
+                <th>Outstanding Debt</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{user.id}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.date_created}}</td>
+                <td>{{user.amount_due}}</td>
+            </tr>
+        </tbody>
+    </table>
+    {% endif %}
+{% endblock content %}
